@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from './AppReducer'
+import AppReducer from "./AppReducer";
 
 // initial state
 
@@ -13,16 +13,26 @@ const initialState = {
 };
 
 // create context
-export const GlobalContext = createContext(initialState)
+export const GlobalContext = createContext(initialState);
 
 // provider component
-export const GlobalProvider = ({children}) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState)
+export const GlobalProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    // actions
-    return (<GlobalContext.Provider value={{
-        transactions: state.transactions
-    }}>
-        {children}
-    </GlobalContext.Provider>)
-}
+  // actions
+  function deleteTransaction(id) {
+    dispatch({
+      type: "DELETE_TRANSACTION",
+      payload: id,
+    });
+  }
+  return (
+    <GlobalContext.Provider
+      value={{
+        transactions: state.transactions,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};
