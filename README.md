@@ -12,3 +12,5 @@ Keep track of income and expenses. Add and remove items and save to local storag
 - Persist to local storage
 
 ## Next is to upgrade this app to permanent storage
+
+# Work is in progress...
