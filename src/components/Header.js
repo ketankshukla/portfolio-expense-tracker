@@ -13,3 +13,4 @@ const Header = () => {
 }
 
 export default Header
+//exporting default header.
